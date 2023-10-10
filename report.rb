@@ -21,6 +21,9 @@ class Report
 
   def self.report_most_hdd_capacity (n, type) 
     vm = {}
+    if type == ''
+      type = 'sas'
+    end
     Read.read_vms.select {|el| el.hdd_type == type}.sort_by {|el| el.hdd_capacity }.last(n).map(&:to_parms)
   end
 

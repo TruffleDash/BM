@@ -20,7 +20,6 @@ class Printer
   def self.report_extra_disk_quantity(n, type)
     volume = Report.report_extra_disk_quantity(n, type)
     puts "#{n} VM with the most additional hdd connected (by quantity)"
-    puts "\n\n#{volume}\n\n"
     volume.each {|key, value| puts "ID #{key}:  #{value} hdd capacity"}
   end
 
