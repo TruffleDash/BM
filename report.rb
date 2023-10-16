@@ -4,7 +4,7 @@ class Report
     vm = {}
     Read.read_vms.each do |el|
       hdd_type_cost = prices[el.hdd_type].to_i
-      vm[el.id] = el.cpu.to_i * prices['cpu'].to_i  + el.ram.to_i * prices['ram'].to_i + hdd_type_cost * el.hdd_capacity.to_i
+      vm[el.id] = el.cpu.to_i * prices['cpu'].to_i + el.ram.to_i * prices['ram'].to_i + hdd_type_cost * el.hdd_capacity.to_i
     end
     vm.sort_by {|k, v| v}.last(n).to_h
   end
@@ -14,7 +14,7 @@ class Report
     vm = {}
     Read.read_vms.each do |el|
       hdd_type_price = prices[el.hdd_type].to_i
-      vm[el.id] = el.cpu.to_i * prices['cpu'].to_i +  el.ram.to_i * prices['ram'].to_i + el.hdd_capacity.to_i * hdd_type_price
+      vm[el.id] = el.cpu.to_i * prices['cpu'].to_i + el.ram.to_i * prices['ram'].to_i + el.hdd_capacity.to_i * hdd_type_price
     end
     vm.sort_by {|k, v| v}.first(n).to_h
   end
