@@ -4,6 +4,8 @@ ENV APP_PATH /app
 RUN mkdir -p $APP_PATH
 WORKDIR $APP_PATH
 
+COPY Gemfile ./
+RUN bundle install
 ADD . .
 
-CMD ["ruby", "main.rb", "30"]
+CMD ["ruby", "server.rb"]
